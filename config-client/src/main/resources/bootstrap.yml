@@ -1,0 +1,24 @@
+#spring:
+#  application:
+#    name: config-client
+#  cloud:
+#    config:
+#      uri: http://localhost:1201/
+#      profile: default
+#      label: master
+#
+#server:
+#  port: 2001
+
+spring: 
+  application: 
+    name: config-client
+  cloud: 
+    config: 
+      name: config-client 
+      uri: http://localhost:1201/ 
+      profile: default 
+      label: master 
+      
+server: 
+  port: 2001
