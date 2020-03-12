@@ -29,6 +29,5 @@ public class NacosConfigClientApplication {
         	log.info(title);
             return title;
         }
-
     }
 }

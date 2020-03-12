@@ -1,0 +1,14 @@
+spring: 
+  application: 
+    name: spring-cloud-gateway-server
+  cloud: 
+    gateway: 
+      routes: 
+        - predicates: 
+            - Path=/java/**
+          filters: 
+            - StripPrefix=1
+          uri: "http://localhost:2001/dc"
+
+server: 
+  port: 1111

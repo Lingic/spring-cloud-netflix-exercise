@@ -1,0 +1,20 @@
+server: 
+  port: 1001
+
+spring: 
+  application: 
+    name: spring-cloud-gateway-nacos-route
+  cloud: 
+    nacos: 
+      discovery: 
+        server-addr: 127.0.0.1:8848
+    gateway: 
+      discovery: 
+        locator: 
+          enabled: true
+          lower-case-service-id: true
+      routes: 
+      - id: alibaba-nacos-discovery-client-common
+        uri: lb://alibaba-nacos-discovery-client-common
+        predicates:
+        - Path=/test/**
