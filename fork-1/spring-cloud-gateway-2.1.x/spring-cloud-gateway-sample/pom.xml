@@ -166,6 +166,52 @@
 						<skip>true</skip>
 					</configuration>
 				</plugin>
+				<plugin>
+					<groupId>org.eclipse.m2e</groupId>
+					<artifactId>lifecycle-mapping</artifactId>
+					<version>1.0.0</version>
+					<inherited>true</inherited>
+					<configuration>
+						<lifecycleMappingMetadata>
+							<pluginExecutions>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>org.codehaus.mojo</groupId>
+										<artifactId>flatten-maven-plugin</artifactId>
+										<versionRange>[1.2.1,)</versionRange>
+										<goals>
+											<goal>flatten</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore />
+									</action>
+								</pluginExecution>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>io.spring.javaformat</groupId>
+										<artifactId>spring-javaformat-maven-plugin</artifactId>
+										<versionRange>[0.0.7,)</versionRange>
+										<goals>
+											<goal>apply</goal>
+											<goal>validate</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore />
+									</action>
+								</pluginExecution>
+							</pluginExecutions>
+						</lifecycleMappingMetadata>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-surefire-plugin</artifactId>
+					<configuration>
+						<skipTests>true</skipTests>
+					</configuration>
+				</plugin>
 			</plugins>
 		</pluginManagement>
 	</build>
