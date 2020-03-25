@@ -1,0 +1,15 @@
+server: 
+  port: 1001
+
+spring: 
+  application: 
+    name: spring-cloud-gateway-route
+  cloud: 
+    gateway: 
+      routes: 
+      - id: user-service
+        uri: "http://localhost:8001/hi"
+        predicates: 
+        - Path=/hi
+        filters: 
+        - Authorize=true

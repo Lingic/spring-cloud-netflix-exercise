@@ -25,5 +25,11 @@ public class NacosProviderApplication {
             log.info("invoked name = " + name);
             return "hello " + name;
         }
+        
+        @GetMapping("/hi")
+        public String hi() {
+        	log.info("invoked hi()" + System.currentTimeMillis());
+        	return "hi " + System.currentTimeMillis();
+        }
     }
 }
