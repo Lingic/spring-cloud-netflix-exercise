@@ -1,0 +1,1 @@
+2020 四月 02 17:03:59 0    INFO  [main] org.apache.cxf.service.factory.ReflectionServiceFactoryBean     - Creating Service {http://service.cxf.ccdc.com/}SayCXFClientService from class com.ccdc.cxf.client.SayCXFClient

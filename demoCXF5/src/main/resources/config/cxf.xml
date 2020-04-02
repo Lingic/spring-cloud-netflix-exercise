@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:jaxws="http://cxf.apache.org/jaxws"
+	xmlns:cxf="http://cxf.apache.org/core" 
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://cxf.apache.org/jaxws 
+		http://cxf.apache.org/schemas/jaxws.xsd
+		http://cxf.apache.org/core 
+    	http://cxf.apache.org/schemas/core.xsd"
+	default-lazy-init="true">
+	<!-- cxf 相关配置，这个照搬就行了，cxf框架里面自带的配置 -->
+	<import resource="classpath:META-INF/cxf/cxf.xml" />
+	<import resource="classpath:META-INF/cxf/cxf-extension-soap.xml" />
+	<import resource="classpath:META-INF/cxf/cxf-servlet.xml" />
+
+	<!-- service定义 -->
+	<bean id="sayCXFbean" class="com.ccdc.cxf.service.impl.SayCXFServiceImpl"
+		scope="singleton"></bean>
+	<!--serviceClass 表示你要对外开发的接口，address表示的地址，本质就是一个servletName，可以随便命名 -->
+	<jaxws:server id="webService" serviceClass="com.ccdc.cxf.service.SayCXFService"
+		address="/service">
+		<!-- 表示你的接口实现类的bean -->
+		<jaxws:serviceBean>
+			<ref bean="sayCXFbean" />
+		</jaxws:serviceBean>
+	</jaxws:server>
+	
+	<!-- 在此处引用拦截器 -->
+	<bean id="CxfInInterceptor" class="com.ccdc.cxf.interceptor.CxfInInterceptor" />
+	<bean id="CxfOutInterceptor" class="com.ccdc.cxf.interceptor.CxfOutInterceptor" />
+	<cxf:bus>
+		<cxf:inInterceptors>
+			<ref bean="CxfInInterceptor" />
+		</cxf:inInterceptors>
+		<cxf:outInterceptors>
+			<ref bean="CxfOutInterceptor" />
+		</cxf:outInterceptors>
+	</cxf:bus>
+	
+</beans>
