@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.project.rfics.managerment.MenusMapper">
+  <resultMap id="BaseResultMap" type="com.project.rfics.managerment.Menus">
+    <id column="menu_no" jdbcType="INTEGER" property="menuNo" />
+    <result column="menu_name" jdbcType="VARCHAR" property="menuName" />
+    <result column="menu_href" jdbcType="VARCHAR" property="menuHref" />
+    <result column="parent_no" jdbcType="INTEGER" property="parentNo" />
+    <result column="check_flag" jdbcType="VARCHAR" property="checkFlag" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    menu_no, menu_name, menu_href, parent_no, check_flag, create_time, update_time, remark
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from menus
+    where menu_no = #{menuNo,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from menus
+    where menu_no = #{menuNo,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyProperty="menuNo" parameterType="com.project.rfics.managerment.Menus" useGeneratedKeys="true">
+    insert into menus (menu_name, menu_href, parent_no, 
+      check_flag, create_time, update_time, 
+      remark)
+    values (#{menuName,jdbcType=VARCHAR}, #{menuHref,jdbcType=VARCHAR}, #{parentNo,jdbcType=INTEGER}, 
+      #{checkFlag,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{remark,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyProperty="menuNo" parameterType="com.project.rfics.managerment.Menus" useGeneratedKeys="true">
+    insert into menus
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="menuName != null">
+        menu_name,
+      </if>
+      <if test="menuHref != null">
+        menu_href,
+      </if>
+      <if test="parentNo != null">
+        parent_no,
+      </if>
+      <if test="checkFlag != null">
+        check_flag,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="menuName != null">
+        #{menuName,jdbcType=VARCHAR},
+      </if>
+      <if test="menuHref != null">
+        #{menuHref,jdbcType=VARCHAR},
+      </if>
+      <if test="parentNo != null">
+        #{parentNo,jdbcType=INTEGER},
+      </if>
+      <if test="checkFlag != null">
+        #{checkFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.project.rfics.managerment.Menus">
+    update menus
+    <set>
+      <if test="menuName != null">
+        menu_name = #{menuName,jdbcType=VARCHAR},
+      </if>
+      <if test="menuHref != null">
+        menu_href = #{menuHref,jdbcType=VARCHAR},
+      </if>
+      <if test="parentNo != null">
+        parent_no = #{parentNo,jdbcType=INTEGER},
+      </if>
+      <if test="checkFlag != null">
+        check_flag = #{checkFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where menu_no = #{menuNo,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.project.rfics.managerment.Menus">
+    update menus
+    set menu_name = #{menuName,jdbcType=VARCHAR},
+      menu_href = #{menuHref,jdbcType=VARCHAR},
+      parent_no = #{parentNo,jdbcType=INTEGER},
+      check_flag = #{checkFlag,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      remark = #{remark,jdbcType=VARCHAR}
+    where menu_no = #{menuNo,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.project.rfics.managerment.Menus">
+    <id column="menu_no" jdbcType="INTEGER" property="menuNo" />
+    <result column="menu_name" jdbcType="VARCHAR" property="menuName" />
+    <result column="menu_href" jdbcType="VARCHAR" property="menuHref" />
+    <result column="parent_no" jdbcType="INTEGER" property="parentNo" />
+    <result column="check_flag" jdbcType="VARCHAR" property="checkFlag" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    menu_no, menu_name, menu_href, parent_no, check_flag, create_time, update_time, remark
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from menus
+    where menu_no = #{menuNo,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from menus
+    where menu_no = #{menuNo,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyProperty="menuNo" parameterType="com.project.rfics.managerment.Menus" useGeneratedKeys="true">
+    insert into menus (menu_name, menu_href, parent_no, 
+      check_flag, create_time, update_time, 
+      remark)
+    values (#{menuName,jdbcType=VARCHAR}, #{menuHref,jdbcType=VARCHAR}, #{parentNo,jdbcType=INTEGER}, 
+      #{checkFlag,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{remark,jdbcType=VARCHAR})
+  </insert>
+
+
+  <!--<insert id="insertMenus" keyProperty="menuNo" parameterType="com.project.rfics.managerment.Menus" useGeneratedKeys="true">
+    insert into menus (menu_name, menu_href, parent_no,
+      check_flag, create_time, update_time,
+      remark)
+    values (#{menuName,jdbcType=VARCHAR}, #{menuHref,jdbcType=VARCHAR}, #{parentNo,jdbcType=INTEGER},
+      #{checkFlag,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP},
+      #{remark,jdbcType=VARCHAR})
+  </insert>-->
+
+
+  <insert id="insertSelective" keyProperty="menuNo" parameterType="com.project.rfics.managerment.Menus" useGeneratedKeys="true">
+    insert into menus
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="menuName != null">
+        menu_name,
+      </if>
+      <if test="menuHref != null">
+        menu_href,
+      </if>
+      <if test="parentNo != null">
+        parent_no,
+      </if>
+      <if test="checkFlag != null">
+        check_flag,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="menuName != null">
+        #{menuName,jdbcType=VARCHAR},
+      </if>
+      <if test="menuHref != null">
+        #{menuHref,jdbcType=VARCHAR},
+      </if>
+      <if test="parentNo != null">
+        #{parentNo,jdbcType=INTEGER},
+      </if>
+      <if test="checkFlag != null">
+        #{checkFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.project.rfics.managerment.Menus">
+    update menus
+    <set>
+      <if test="menuName != null">
+        menu_name = #{menuName,jdbcType=VARCHAR},
+      </if>
+      <if test="menuHref != null">
+        menu_href = #{menuHref,jdbcType=VARCHAR},
+      </if>
+      <if test="parentNo != null">
+        parent_no = #{parentNo,jdbcType=INTEGER},
+      </if>
+      <if test="checkFlag != null">
+        check_flag = #{checkFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where menu_no = #{menuNo,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.project.rfics.managerment.Menus">
+    update menus
+    set menu_name = #{menuName,jdbcType=VARCHAR},
+      menu_href = #{menuHref,jdbcType=VARCHAR},
+      parent_no = #{parentNo,jdbcType=INTEGER},
+      check_flag = #{checkFlag,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      remark = #{remark,jdbcType=VARCHAR}
+    where menu_no = #{menuNo,jdbcType=INTEGER}
+  </update>
+</mapper>
